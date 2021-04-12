@@ -84,7 +84,7 @@ namespace ariel {
             friend NumberWithUnits operator*=(NumberWithUnits& unit_number, double number);
             friend NumberWithUnits operator*=(double number, NumberWithUnits& unit_number);
 
-            /** equality operators */
+            /** Comparison operators */
 
             // == operator
             friend bool operator==(const NumberWithUnits& unit_number_1, const NumberWithUnits& unit_number_2);
