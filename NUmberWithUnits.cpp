@@ -34,7 +34,7 @@ namespace ariel {
 
     // implement read_units function
     void NumberWithUnits::read_units(ifstream& units_file) {
-        
+
         double amount_1 = 0;
         double amount_2 = 0;
         string unit_1;
@@ -59,43 +59,23 @@ namespace ariel {
                 T[key][unit_2] = 1/ans;
             }
         }
-
-        // while(units_file >> amount_1 >> unit_1 >> mark >> amount_2 >> unit_2) {
-        //     if(amount_1 == 0 || amount_2 == 0 || unit_1.empty() || unit_2.empty()) { continue; }
-        // }
-        // T[unit_1][unit_2] = amount_2 / amount_1;
-        // T[unit_2][unit_1] = amount_1 / amount_2;
-        // for(auto &p : T[unit_1]) {
-        //     if(unit_2 != p.first) {
-        //         T[unit_2][p.first] = p.second / (amount_1 * amount_2);
-        //         T[p.first][unit_2] = (amount_1 / amount_2) / p.second;
-        //     }
-        // }
-        // for(auto &p : T[unit_2]) {
-        //     if(unit_1 != p.first) {
-        //         T[unit_1][p.first] = p.second / (amount_1 / amount_2);
-        //         T[p.first][unit_1] = (amount_1 / amount_2) / p.second;
-        //     }
-        // }
     }
 
+    // casting unit number to another unit number function
     static double casting_units(const string& from_unit, const string& to_unit, double value) {
         double ans = 0;
         if(from_unit == to_unit) { ans = value; }
         else if(from_unit.empty() || to_unit.empty()) { throw invalid_argument{"unit cannot be empty"}; }
         else {
-            try {
-                std::cout << "out!: " << T.at(from_unit).at(to_unit) << endl;
-                ans = value * T.at(from_unit).at(to_unit);
-                
-            }
+            try { ans = value * T.at(from_unit).at(to_unit); }
             catch(const exception& e) {
-                throw invalid_argument{"unit " + from_unit + " cannot casting to " + to_unit};
+                throw invalid_argument{"Units do not match - [" + from_unit + "] cannot be converted to [" + to_unit + "]"};
             }
         }
         return ans;
     }
 
+    // compare between unit numbers function
     static int compare_units(const NumberWithUnits& unit_number_1, const NumberWithUnits& unit_number_2) {
         int ans = 0;
         if(unit_number_1.getValue() - casting_units(unit_number_2.getType(), unit_number_1.getType(), unit_number_2.getValue()) > EPS) { ans = 1; }
