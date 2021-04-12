@@ -24,6 +24,10 @@ ifstream units_file{"units.txt"};
 /** km and m tests **/
 TEST_CASE("{km, m}: Comparison operators { ==, != }") {
     NumberWithUnits::read_units(units_file);
+    string small = "m";
+    string big = "km";
+    int mul = 1000;
+    
 }
 TEST_CASE("{km, m}: Comparison operators { <=, < }") {
     NumberWithUnits::read_units(units_file);
