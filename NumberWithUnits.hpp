@@ -26,13 +26,13 @@ namespace ariel {
 
         // private variables and methods
         private:
-            double value;
-            string unit;
+            double unit_value;
+            string unit_type;
 
         // public variables and methods
         public:
             // define constructor
-            NumberWithUnits(double value, const string& unit);
+            NumberWithUnits(double value, const string& type);
 
             // deconstructor
             ~NumberWithUnits() {}
