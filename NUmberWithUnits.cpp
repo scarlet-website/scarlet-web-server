@@ -58,26 +58,23 @@ namespace ariel {
         }
     }
 
-    double casting(const string& from_unit, const string& to_unit, double value) {
-        if(from_unit == to_unit) {}
+    static double casting(const string& from_unit, const string& to_unit, double value) {
+        double ans = 0;
+        if(from_unit == to_unit) { ans = value; }
         else if(from_unit.empty() || to_unit.empty()) { throw invalid_argument{"unit cannot be empty"}; }
         else {
-            try { value *= T.at(from_unit).at(to_unit); }
+            try { ans = value * T.at(from_unit).at(to_unit); }
             catch(const exception& e) {
                 throw invalid_argument{"unit " + from_unit + " cannot casting to " + to_unit};
             }
         }
-        return value;
+        return ans;
     }
 
-    int compare_units(const NumberWithUnits& unit_number_1, const NumberWithUnits& unit_number_2) {
+    static int compare_units(const NumberWithUnits& unit_number_1, const NumberWithUnits& unit_number_2) {
         int ans = 0;
-        if(unit_number_1.getValue() - casting(unit_number_2.getType(), unit_number_1.getType(), unit_number_2.getValue()) > EPS) {
-            ans = 1;
-        } 
-        else if(casting(unit_number_2.getType(), unit_number_1.getType(), unit_number_2.getValue()) - unit_number_1.getValue() > EPS) {
-            ans = -1;
-        }
+        if(unit_number_1.getValue() - casting(unit_number_2.getType(), unit_number_1.getType(), unit_number_2.getValue()) > EPS) { ans = 1; }
+        else if(casting(unit_number_2.getType(), unit_number_1.getType(), unit_number_2.getValue()) - unit_number_1.getValue() > EPS) { ans = -1; }
         return ans;
     }
 
@@ -107,8 +104,8 @@ namespace ariel {
 
     // + operators
     NumberWithUnits operator+(const NumberWithUnits& unit_number_1, const NumberWithUnits& unit_number_2) {
-        double temp = casting(unit_number_2.unit, unit_number_2.unit, unit_number_2.value);
-        return NumberWithUnits(unit_number_2.value + temp, unit_number_1.unit);
+        double temp = casting(unit_number_2.unit, unit_number_1.unit, unit_number_2.value);
+        return NumberWithUnits(unit_number_1.value + temp, unit_number_1.unit);
     }
 
     NumberWithUnits operator+(const NumberWithUnits& unit_number, double number) {
