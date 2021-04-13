@@ -25,6 +25,7 @@ namespace ariel {
     static map<string, map<string, double>> T;
     const double EPS = 0.00001;
     const int ZERO = 0;
+    const int ONE = 1;
 
     // implement constructor
     NumberWithUnits::NumberWithUnits(double value, const string& type) {
@@ -35,37 +36,37 @@ namespace ariel {
     // implement read_units function
     void NumberWithUnits::read_units(ifstream& units_file) {
 
-        double amount_1 = 0;
-        double amount_2 = 0;
+        double amount_1 = ZERO;
+        double amount_2 = ZERO;
         string unit_1;
         string unit_2;
         string mark;
 
         while(units_file >> amount_1 >> unit_1 >> mark >> amount_2 >> unit_2) {
             T[unit_1][unit_2] = amount_2;
-            T[unit_2][unit_1] = 1 / amount_2;
+            T[unit_2][unit_1] = ONE / amount_2;
             for(const auto& kv: T[unit_2]) {
                 const auto& key = kv.first;
                 const auto& value = kv.second;
                 double ans = T[unit_1][unit_2] * value;
                 T[unit_1][key] = ans;
-                T[key][unit_1] = 1/ans;
+                T[key][unit_1] = ONE / ans;
             }
             for(const auto& kv: T[unit_1]) {
                 const auto& key = kv.first;
                 const auto& value = kv.second;
                 double ans = T[unit_2][unit_1] * value;
                 T[unit_2][key] = ans;
-                T[key][unit_2] = 1/ans;
+                T[key][unit_2] = ONE / ans;
             }
         }
     }
 
     // casting unit number to another unit number function
     static double casting_units(const string& from_unit, const string& to_unit, double value) {
-        double ans = 0;
+        double ans = ZERO;
         if(from_unit == to_unit) { ans = value; }
-        else if(from_unit.empty() || to_unit.empty()) { throw invalid_argument{"unit cannot be empty"}; }
+        else if(from_unit.empty() || to_unit.empty()) { throw invalid_argument{"Units cannot be empty"}; }
         else {
             try { ans = value * T.at(from_unit).at(to_unit); }
             catch(const exception& e) {
@@ -77,8 +78,8 @@ namespace ariel {
 
     // compare between unit numbers function
     static int compare_units(const NumberWithUnits& unit_number_1, const NumberWithUnits& unit_number_2) {
-        int ans = 0;
-        if(unit_number_1.getValue() - casting_units(unit_number_2.getType(), unit_number_1.getType(), unit_number_2.getValue()) > EPS) { ans = 1; }
+        int ans = ZERO;
+        if(unit_number_1.getValue() - casting_units(unit_number_2.getType(), unit_number_1.getType(), unit_number_2.getValue()) > EPS) { ans = ONE; }
         else if(casting_units(unit_number_2.getType(), unit_number_1.getType(), unit_number_2.getValue()) - unit_number_1.getValue() > EPS) { ans = -1; }
         return ans;
     }
@@ -119,10 +120,10 @@ namespace ariel {
 
     // ++ operators
     NumberWithUnits operator++(NumberWithUnits& unit_number, int) {
-        return NumberWithUnits(unit_number.unit_value + 1, unit_number.unit_type);
+        return NumberWithUnits(unit_number.unit_value + ONE, unit_number.unit_type);
     }
     NumberWithUnits operator++(NumberWithUnits& unit_number) {
-        return NumberWithUnits(unit_number.unit_value + 1, unit_number.unit_type);
+        return NumberWithUnits(unit_number.unit_value + ONE, unit_number.unit_type);
     }
 
     // += operator
@@ -142,10 +143,10 @@ namespace ariel {
 
     // -- operators
     NumberWithUnits operator--(NumberWithUnits& unit_number, int) {
-        return NumberWithUnits(unit_number.unit_value - 1, unit_number.unit_type);
+        return NumberWithUnits(unit_number.unit_value - ONE, unit_number.unit_type);
     }
     NumberWithUnits operator--(NumberWithUnits& unit_number) {
-        return NumberWithUnits(unit_number.unit_value - 1, unit_number.unit_type);
+        return NumberWithUnits(unit_number.unit_value - ONE, unit_number.unit_type);
     }
 
     // -= operator
