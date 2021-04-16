@@ -48,11 +48,6 @@ int rand_int(int bottom, int top) {
     return bottom + (rand() % (top - bottom + 1));
 }
 
-// return x <= amount
-// int get_slice(int value) {
-//     return value - rand_double(0, value);
-// }
-
 /** km and m tests **/
 TEST_CASE("{km, m}: Comparison operators { ==, != }") {
     NumberWithUnits::read_units(units_file);
