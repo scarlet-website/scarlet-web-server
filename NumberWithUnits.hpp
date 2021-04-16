@@ -34,6 +34,9 @@ namespace ariel {
             // define constructor
             NumberWithUnits(double value, const string& type);
 
+            // default constructor
+            NumberWithUnits() {}
+
             // deconstructor
             ~NumberWithUnits() {}
 
