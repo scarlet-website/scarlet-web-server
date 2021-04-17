@@ -12,8 +12,6 @@
 #include <iostream>
 #include <fstream>
 #include <bits/stdc++.h>
-#include <random>
-#include <ctime>
 #include "doctest.h"
 #include "NumberWithUnits.hpp"
 
@@ -59,6 +57,21 @@ double rand_double(double bottom, double top) {
 int rand_int(int bottom, int top) {
     return bottom + (rand() % (top - bottom + 1));
 }
+
+/**
+ * 
+ * For each couple of units type: { {km, m}, {m, cm}, {ton, kg}, {hour, min}, {min, sec}, {USD, ILS} }
+ * have a 7 TEST_CASES:
+ * 
+ * Comparison operators { ==, != }
+ * Comparison operators { <=, < }
+ * Comparison operators { >=, > }
+ * Arithmetic operators { ++, -- }
+ * Arithmetic operators { +, += }
+ * Arithmetic operators { -, -= }
+ * Arithmetic operators { *, *= }
+ * 
+ * */
 
 /** km and m tests */
 TEST_CASE("{km, m}: Comparison operators { ==, != }") {
@@ -186,7 +199,7 @@ TEST_CASE("{km, m}: Comparison operators { >=, > }") {
     value = rand_double(0, INT_F);
     CHECK(NumberWithUnits{value + EPS7, small} > NumberWithUnits{value, small});
 }
-TEST_CASE("{km, m}: arithmetic operators { ++, -- }") {
+TEST_CASE("{km, m}: Arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
     string small = "m";
     string big = "km";
@@ -251,7 +264,7 @@ TEST_CASE("{km, m}: arithmetic operators { ++, -- }") {
     m++;
     CHECK(m <= NumberWithUnits{value+1, small});
 }
-TEST_CASE("{km, m}: arithmetic operators { +, += }") {
+TEST_CASE("{km, m}: Arithmetic operators { +, += }") {
     NumberWithUnits::read_units(units_file);
     string small = "m";
     string big = "km";
@@ -274,7 +287,7 @@ TEST_CASE("{km, m}: arithmetic operators { +, += }") {
     d+=e;
     CHECK(d == NumberWithUnits{value3+value4, big});
 }
-TEST_CASE("{km, m}: arithmetic operators { -, -= }") {
+TEST_CASE("{km, m}: Arithmetic operators { -, -= }") {
     NumberWithUnits::read_units(units_file);
     string small = "m";
     string big = "km";
@@ -297,7 +310,7 @@ TEST_CASE("{km, m}: arithmetic operators { -, -= }") {
     d-=e;
     CHECK(d == NumberWithUnits{value3-value4, big});
 }
-TEST_CASE("{km, m}: arithmetic operators { *, *= }") {
+TEST_CASE("{km, m}: Arithmetic operators { *, *= }") {
     NumberWithUnits::read_units(units_file);
     string small = "m";
     string big = "km";
@@ -449,7 +462,7 @@ TEST_CASE("{m, cm}: Comparison operators { >=, > }") {
     value = rand_double(0, INT_F);
     CHECK(NumberWithUnits{value + EPS7, small} > NumberWithUnits{value, small});
 }
-TEST_CASE("{m, cm}: arithmetic operators { ++, -- }") {
+TEST_CASE("{m, cm}: Arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
     string small = "cm";
     string big = "m";
@@ -515,7 +528,7 @@ TEST_CASE("{m, cm}: arithmetic operators { ++, -- }") {
     CHECK(m <= NumberWithUnits{value+1, small});
     
 }
-TEST_CASE("{m, cm}: arithmetic operators { +, += }") {
+TEST_CASE("{m, cm}: Arithmetic operators { +, += }") {
     NumberWithUnits::read_units(units_file);
     string small = "cm";
     string big = "m";
@@ -538,7 +551,7 @@ TEST_CASE("{m, cm}: arithmetic operators { +, += }") {
     d+=e;
     CHECK(d == NumberWithUnits{value3+value4, big});
 }
-TEST_CASE("{m, cm}: arithmetic operators { -, -= }") {
+TEST_CASE("{m, cm}: Arithmetic operators { -, -= }") {
     NumberWithUnits::read_units(units_file);
     string small = "cm";
     string big = "m";
@@ -561,7 +574,7 @@ TEST_CASE("{m, cm}: arithmetic operators { -, -= }") {
     d-=e;
     CHECK(d == NumberWithUnits{value3-value4, big});
 }
-TEST_CASE("{m, cm}: arithmetic operators { *, *= }") {
+TEST_CASE("{m, cm}: Arithmetic operators { *, *= }") {
     NumberWithUnits::read_units(units_file);
     string small = "cm";
     string big = "m";
@@ -713,7 +726,7 @@ TEST_CASE("{ton, kg}: Comparison operators { >=, > }") {
     value = rand_double(0, INT_F);
     CHECK(NumberWithUnits{value + EPS7, small} > NumberWithUnits{value, small});
 }
-TEST_CASE("{ton, kg}: arithmetic operators { ++, -- }") {
+TEST_CASE("{ton, kg}: Arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
     string small = "kg";
     string big = "ton";
@@ -778,7 +791,7 @@ TEST_CASE("{ton, kg}: arithmetic operators { ++, -- }") {
     m++;
     CHECK(m <= NumberWithUnits{value+1, small});
 }
-TEST_CASE("{ton, kg}: arithmetic operators { +, += }") {
+TEST_CASE("{ton, kg}: Arithmetic operators { +, += }") {
     NumberWithUnits::read_units(units_file);
     string small = "kg";
     string big = "ton";
@@ -801,7 +814,7 @@ TEST_CASE("{ton, kg}: arithmetic operators { +, += }") {
     d+=e;
     CHECK(d == NumberWithUnits{value3+value4, big});
 }
-TEST_CASE("{ton, kg}: arithmetic operators { -, -= }") {
+TEST_CASE("{ton, kg}: Arithmetic operators { -, -= }") {
     NumberWithUnits::read_units(units_file);
     string small = "kg";
     string big = "ton";
@@ -824,7 +837,7 @@ TEST_CASE("{ton, kg}: arithmetic operators { -, -= }") {
     d-=e;
     CHECK(d == NumberWithUnits{value3-value4, big});
 }
-TEST_CASE("{ton, kg}: arithmetic operators { *, *= }") {
+TEST_CASE("{ton, kg}: Arithmetic operators { *, *= }") {
     NumberWithUnits::read_units(units_file);
     string small = "kg";
     string big = "ton";
@@ -976,7 +989,7 @@ TEST_CASE("{kg, g}: Comparison operators { >=, > }") {
     value = rand_double(0, INT_F);
     CHECK(NumberWithUnits{value + EPS7, small} > NumberWithUnits{value, small});
 }
-TEST_CASE("{kg, g}: arithmetic operators { ++, -- }") {
+TEST_CASE("{kg, g}: Arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
     string small = "g";
     string big = "kg";
@@ -1041,7 +1054,7 @@ TEST_CASE("{kg, g}: arithmetic operators { ++, -- }") {
     m++;
     CHECK(m <= NumberWithUnits{value+1, small});
 }
-TEST_CASE("{kg, g}: arithmetic operators { +, += }") {
+TEST_CASE("{kg, g}: Arithmetic operators { +, += }") {
     NumberWithUnits::read_units(units_file);
     string small = "g";
     string big = "kg";
@@ -1064,7 +1077,7 @@ TEST_CASE("{kg, g}: arithmetic operators { +, += }") {
     d+=e;
     CHECK(d == NumberWithUnits{value3+value4, big});
 }
-TEST_CASE("{kg, g}: arithmetic operators { -, -= }") {
+TEST_CASE("{kg, g}: Arithmetic operators { -, -= }") {
     NumberWithUnits::read_units(units_file);
     string small = "g";
     string big = "kg";
@@ -1087,7 +1100,7 @@ TEST_CASE("{kg, g}: arithmetic operators { -, -= }") {
     d-=e;
     CHECK(d == NumberWithUnits{value3-value4, big});
 }
-TEST_CASE("{kg, g}: arithmetic operators { *, *= }") {
+TEST_CASE("{kg, g}: Arithmetic operators { *, *= }") {
     NumberWithUnits::read_units(units_file);
     string small = "g";
     string big = "kg";
@@ -1239,7 +1252,7 @@ TEST_CASE("{hour, min}: Comparison operators { >=, > }") {
     value = rand_double(0, INT_F);
     CHECK(NumberWithUnits{value + EPS7, small} > NumberWithUnits{value, small});
 }
-TEST_CASE("{hour, min}: arithmetic operators { ++, -- }") {
+TEST_CASE("{hour, min}: Arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
     string small = "min";
     string big = "hour";
@@ -1304,7 +1317,7 @@ TEST_CASE("{hour, min}: arithmetic operators { ++, -- }") {
     m++;
     CHECK(m <= NumberWithUnits{value+1, small});
 }
-TEST_CASE("{hour, min}: arithmetic operators { +, += }") {
+TEST_CASE("{hour, min}: Arithmetic operators { +, += }") {
     NumberWithUnits::read_units(units_file);
     string small = "min";
     string big = "hour";
@@ -1327,7 +1340,7 @@ TEST_CASE("{hour, min}: arithmetic operators { +, += }") {
     d+=e;
     CHECK(d == NumberWithUnits{value3+value4, big});
 }
-TEST_CASE("{hour, min}: arithmetic operators { -, -= }") {
+TEST_CASE("{hour, min}: Arithmetic operators { -, -= }") {
     NumberWithUnits::read_units(units_file);
     string small = "min";
     string big = "hour";
@@ -1350,7 +1363,7 @@ TEST_CASE("{hour, min}: arithmetic operators { -, -= }") {
     d-=e;
     CHECK(d == NumberWithUnits{value3-value4, big});
 }
-TEST_CASE("{hour, min}: arithmetic operators { *, *= }") {
+TEST_CASE("{hour, min}: Arithmetic operators { *, *= }") {
     NumberWithUnits::read_units(units_file);
     string small = "min";
     string big = "hour";
@@ -1502,7 +1515,7 @@ TEST_CASE("{min, sec}: Comparison operators { >=, > }") {
     value = rand_double(0, INT_F);
     CHECK(NumberWithUnits{value + EPS7, small} > NumberWithUnits{value, small});
 }
-TEST_CASE("{min, sec}: arithmetic operators { ++, -- }") {
+TEST_CASE("{min, sec}: Arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
     string small = "sec";
     string big = "min";
@@ -1567,7 +1580,7 @@ TEST_CASE("{min, sec}: arithmetic operators { ++, -- }") {
     m++;
     CHECK(m <= NumberWithUnits{value+1, small});
 }
-TEST_CASE("{min, sec}: arithmetic operators { +, += }") {
+TEST_CASE("{min, sec}: Arithmetic operators { +, += }") {
     NumberWithUnits::read_units(units_file);
     string small = "sec";
     string big = "min";
@@ -1590,7 +1603,7 @@ TEST_CASE("{min, sec}: arithmetic operators { +, += }") {
     d+=e;
     CHECK(d == NumberWithUnits{value3+value4, big});
 }
-TEST_CASE("{min, sec}: arithmetic operators { -, -= }") {
+TEST_CASE("{min, sec}: Arithmetic operators { -, -= }") {
     NumberWithUnits::read_units(units_file);
     string small = "sec";
     string big = "min";
@@ -1613,7 +1626,7 @@ TEST_CASE("{min, sec}: arithmetic operators { -, -= }") {
     d-=e;
     CHECK(d == NumberWithUnits{value3-value4, big});
 }
-TEST_CASE("{min, sec}: arithmetic operators { *, *= }") {
+TEST_CASE("{min, sec}: Arithmetic operators { *, *= }") {
     NumberWithUnits::read_units(units_file);
     string small = "sec";
     string big = "min";
@@ -1765,7 +1778,7 @@ TEST_CASE("{USD, ILS}: Comparison operators { >=, > }") {
     value = rand_double(0, INT_F);
     CHECK(NumberWithUnits{value + EPS7, small} > NumberWithUnits{value, small});
 }
-TEST_CASE("{USD, ILS}: arithmetic operators { ++, -- }") {
+TEST_CASE("{USD, ILS}: Arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
     string small = "ILS";
     string big = "USD";
@@ -1830,7 +1843,7 @@ TEST_CASE("{USD, ILS}: arithmetic operators { ++, -- }") {
     m++;
     CHECK(m <= NumberWithUnits{value+1, small});
 }
-TEST_CASE("{USD, ILS}: arithmetic operators { +, += }") {
+TEST_CASE("{USD, ILS}: Arithmetic operators { +, += }") {
     NumberWithUnits::read_units(units_file);
     string small = "ILS";
     string big = "USD";
@@ -1853,7 +1866,7 @@ TEST_CASE("{USD, ILS}: arithmetic operators { +, += }") {
     d+=e;
     CHECK(d == NumberWithUnits{value3+value4, big});
 }
-TEST_CASE("{USD, ILS}: arithmetic operators { -, -= }") {
+TEST_CASE("{USD, ILS}: Arithmetic operators { -, -= }") {
     NumberWithUnits::read_units(units_file);
     string small = "ILS";
     string big = "USD";
@@ -1876,7 +1889,7 @@ TEST_CASE("{USD, ILS}: arithmetic operators { -, -= }") {
     d-=e;
     CHECK(d == NumberWithUnits{value3-value4, big});
 }
-TEST_CASE("{USD, ILS}: arithmetic operators { *, *= }") {
+TEST_CASE("{USD, ILS}: Arithmetic operators { *, *= }") {
     NumberWithUnits::read_units(units_file);
     string small = "ILS";
     string big = "USD";
