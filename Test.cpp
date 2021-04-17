@@ -12,6 +12,8 @@
 #include <iostream>
 #include <fstream>
 #include <bits/stdc++.h>
+#include <random>
+#include <ctime>
 #include "doctest.h"
 #include "NumberWithUnits.hpp"
 
@@ -48,7 +50,8 @@ ifstream units_file{"units.txt"};
 // taken from https://stackoverflow.com/questions/2704521/generate-random-double-numbers-in-c/9324796
 double rand_double(double bottom, double top) {
     double f = (double)rand() / RAND_MAX;
-    return bottom + f * (top - bottom);
+    if(bottom > 0) { return abs(floor((bottom + f * (top - bottom)) * 1000.) / 1000.); }
+    else return floor((bottom + f * (top - bottom)) * 1000.) / 1000.;
 }
 
 // returning a random integer between bottom and top integers
@@ -187,6 +190,68 @@ TEST_CASE("{km, m}: Comparison operators { >=, > }") {
 }
 TEST_CASE("{km, m}: arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
+    string small = "m";
+    string big = "km";
+    int mul = M_TO_KM;
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_B = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_C = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_D = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_E = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_F = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    
+    // ++
+    double value = rand_double(0, INT_A);
+    NumberWithUnits a{value, small};
+    a++;
+    CHECK(a <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_B);
+    NumberWithUnits b{value, small};
+    b++;
+    CHECK(b <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_C);
+    NumberWithUnits c{value, small};
+    c++;
+    CHECK(c <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_D);
+    NumberWithUnits d{value, small};
+    d++;
+    CHECK(d <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_E);
+    NumberWithUnits e{value, small};
+    e++;
+    CHECK(e <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_F);
+    NumberWithUnits f{value, small};
+    f++;
+    CHECK(f <= NumberWithUnits{value+1, small});
+
+    // --
+    value = rand_double(0, INT_B);
+    NumberWithUnits g{value, small};
+    g++;
+    CHECK(g <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_B);
+    NumberWithUnits h{value, small};
+    h++;
+    CHECK(h <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_C);
+    NumberWithUnits i{value, small};
+    i++;
+    CHECK(i <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_D);
+    NumberWithUnits j{value, small};
+    j++;
+    CHECK(j <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_E);
+    NumberWithUnits k{value, small};
+    k++;
+    CHECK(k <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_F);
+    NumberWithUnits m{value, small};
+    m++;
+    CHECK(m <= NumberWithUnits{value+1, small});
 }
 TEST_CASE("{km, m}: arithmetic operators { +, += ") {
     NumberWithUnits::read_units(units_file);
@@ -325,6 +390,69 @@ TEST_CASE("{m, cm}: Comparison operators { >=, > }") {
 }
 TEST_CASE("{m, cm}: arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
+    string small = "cm";
+    string big = "m";
+    int mul = CM_TO_M;
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_B = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_C = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_D = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_E = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_F = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    
+    // ++
+    double value = rand_double(0, INT_A);
+    NumberWithUnits a{value, small};
+    a++;
+    CHECK(a <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_B);
+    NumberWithUnits b{value, small};
+    b++;
+    CHECK(b <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_C);
+    NumberWithUnits c{value, small};
+    c++;
+    CHECK(c <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_D);
+    NumberWithUnits d{value, small};
+    d++;
+    CHECK(d <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_E);
+    NumberWithUnits e{value, small};
+    e++;
+    CHECK(e <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_F);
+    NumberWithUnits f{value, small};
+    f++;
+    CHECK(f <= NumberWithUnits{value+1, small});
+
+    // --
+    value = rand_double(0, INT_B);
+    NumberWithUnits g{value, small};
+    g++;
+    CHECK(g <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_B);
+    NumberWithUnits h{value, small};
+    h++;
+    CHECK(h <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_C);
+    NumberWithUnits i{value, small};
+    i++;
+    CHECK(i <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_D);
+    NumberWithUnits j{value, small};
+    j++;
+    CHECK(j <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_E);
+    NumberWithUnits k{value, small};
+    k++;
+    CHECK(k <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_F);
+    NumberWithUnits m{value, small};
+    m++;
+    CHECK(m <= NumberWithUnits{value+1, small});
+    
 }
 TEST_CASE("{m, cm}: arithmetic operators { +, += ") {
     NumberWithUnits::read_units(units_file);
@@ -463,6 +591,68 @@ TEST_CASE("{ton, kg}: Comparison operators { >=, > }") {
 }
 TEST_CASE("{ton, kg}: arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
+    string small = "kg";
+    string big = "ton";
+    int mul = KG_TO_TON;
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_B = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_C = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_D = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_E = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_F = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    
+    // ++
+    double value = rand_double(0, INT_A);
+    NumberWithUnits a{value, small};
+    a++;
+    CHECK(a <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_B);
+    NumberWithUnits b{value, small};
+    b++;
+    CHECK(b <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_C);
+    NumberWithUnits c{value, small};
+    c++;
+    CHECK(c <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_D);
+    NumberWithUnits d{value, small};
+    d++;
+    CHECK(d <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_E);
+    NumberWithUnits e{value, small};
+    e++;
+    CHECK(e <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_F);
+    NumberWithUnits f{value, small};
+    f++;
+    CHECK(f <= NumberWithUnits{value+1, small});
+
+    // --
+    value = rand_double(0, INT_B);
+    NumberWithUnits g{value, small};
+    g++;
+    CHECK(g <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_B);
+    NumberWithUnits h{value, small};
+    h++;
+    CHECK(h <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_C);
+    NumberWithUnits i{value, small};
+    i++;
+    CHECK(i <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_D);
+    NumberWithUnits j{value, small};
+    j++;
+    CHECK(j <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_E);
+    NumberWithUnits k{value, small};
+    k++;
+    CHECK(k <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_F);
+    NumberWithUnits m{value, small};
+    m++;
+    CHECK(m <= NumberWithUnits{value+1, small});
 }
 TEST_CASE("{ton, kg}: arithmetic operators { +, += ") {
     NumberWithUnits::read_units(units_file);
@@ -601,6 +791,68 @@ TEST_CASE("{kg, g}: Comparison operators { >=, > }") {
 }
 TEST_CASE("{kg, g}: arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
+    string small = "g";
+    string big = "kg";
+    int mul = G_TO_KG;
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_B = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_C = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_D = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_E = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_F = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    
+    // ++
+    double value = rand_double(0, INT_A);
+    NumberWithUnits a{value, small};
+    a++;
+    CHECK(a <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_B);
+    NumberWithUnits b{value, small};
+    b++;
+    CHECK(b <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_C);
+    NumberWithUnits c{value, small};
+    c++;
+    CHECK(c <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_D);
+    NumberWithUnits d{value, small};
+    d++;
+    CHECK(d <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_E);
+    NumberWithUnits e{value, small};
+    e++;
+    CHECK(e <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_F);
+    NumberWithUnits f{value, small};
+    f++;
+    CHECK(f <= NumberWithUnits{value+1, small});
+
+    // --
+    value = rand_double(0, INT_B);
+    NumberWithUnits g{value, small};
+    g++;
+    CHECK(g <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_B);
+    NumberWithUnits h{value, small};
+    h++;
+    CHECK(h <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_C);
+    NumberWithUnits i{value, small};
+    i++;
+    CHECK(i <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_D);
+    NumberWithUnits j{value, small};
+    j++;
+    CHECK(j <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_E);
+    NumberWithUnits k{value, small};
+    k++;
+    CHECK(k <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_F);
+    NumberWithUnits m{value, small};
+    m++;
+    CHECK(m <= NumberWithUnits{value+1, small});
 }
 TEST_CASE("{kg, g}: arithmetic operators { +, += ") {
     NumberWithUnits::read_units(units_file);
@@ -739,6 +991,68 @@ TEST_CASE("{hour, min}: Comparison operators { >=, > }") {
 }
 TEST_CASE("{hour, min}: arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
+    string small = "min";
+    string big = "hour";
+    int mul = MIN_TO_HOUR;
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_B = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_C = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_D = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_E = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_F = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    
+    // ++
+    double value = rand_double(0, INT_A);
+    NumberWithUnits a{value, small};
+    a++;
+    CHECK(a <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_B);
+    NumberWithUnits b{value, small};
+    b++;
+    CHECK(b <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_C);
+    NumberWithUnits c{value, small};
+    c++;
+    CHECK(c <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_D);
+    NumberWithUnits d{value, small};
+    d++;
+    CHECK(d <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_E);
+    NumberWithUnits e{value, small};
+    e++;
+    CHECK(e <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_F);
+    NumberWithUnits f{value, small};
+    f++;
+    CHECK(f <= NumberWithUnits{value+1, small});
+
+    // --
+    value = rand_double(0, INT_B);
+    NumberWithUnits g{value, small};
+    g++;
+    CHECK(g <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_B);
+    NumberWithUnits h{value, small};
+    h++;
+    CHECK(h <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_C);
+    NumberWithUnits i{value, small};
+    i++;
+    CHECK(i <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_D);
+    NumberWithUnits j{value, small};
+    j++;
+    CHECK(j <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_E);
+    NumberWithUnits k{value, small};
+    k++;
+    CHECK(k <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_F);
+    NumberWithUnits m{value, small};
+    m++;
+    CHECK(m <= NumberWithUnits{value+1, small});
 }
 TEST_CASE("{hour, min}: arithmetic operators { +, += ") {
     NumberWithUnits::read_units(units_file);
@@ -877,6 +1191,68 @@ TEST_CASE("{min, sec}: Comparison operators { >=, > }") {
 }
 TEST_CASE("{min, sec}: arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
+    string small = "sec";
+    string big = "min";
+    int mul = SEC_TO_MIN;
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_B = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_C = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_D = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_E = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_F = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    
+    // ++
+    double value = rand_double(0, INT_A);
+    NumberWithUnits a{value, small};
+    a++;
+    CHECK(a <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_B);
+    NumberWithUnits b{value, small};
+    b++;
+    CHECK(b <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_C);
+    NumberWithUnits c{value, small};
+    c++;
+    CHECK(c <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_D);
+    NumberWithUnits d{value, small};
+    d++;
+    CHECK(d <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_E);
+    NumberWithUnits e{value, small};
+    e++;
+    CHECK(e <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_F);
+    NumberWithUnits f{value, small};
+    f++;
+    CHECK(f <= NumberWithUnits{value+1, small});
+
+    // --
+    value = rand_double(0, INT_B);
+    NumberWithUnits g{value, small};
+    g++;
+    CHECK(g <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_B);
+    NumberWithUnits h{value, small};
+    h++;
+    CHECK(h <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_C);
+    NumberWithUnits i{value, small};
+    i++;
+    CHECK(i <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_D);
+    NumberWithUnits j{value, small};
+    j++;
+    CHECK(j <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_E);
+    NumberWithUnits k{value, small};
+    k++;
+    CHECK(k <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_F);
+    NumberWithUnits m{value, small};
+    m++;
+    CHECK(m <= NumberWithUnits{value+1, small});
 }
 TEST_CASE("{min, sec}: arithmetic operators { +, += ") {
     NumberWithUnits::read_units(units_file);
@@ -1015,6 +1391,68 @@ TEST_CASE("{USD, ILS}: Comparison operators { >=, > }") {
 }
 TEST_CASE("{USD, ILS}: arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
+    string small = "ILS";
+    string big = "USD";
+    int mul = ILS_TO_USD;
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_B = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_C = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_D = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_E = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_F = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    
+    // ++
+    double value = rand_double(0, INT_A);
+    NumberWithUnits a{value, small};
+    a++;
+    CHECK(a <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_B);
+    NumberWithUnits b{value, small};
+    b++;
+    CHECK(b <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_C);
+    NumberWithUnits c{value, small};
+    c++;
+    CHECK(c <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_D);
+    NumberWithUnits d{value, small};
+    d++;
+    CHECK(d <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_E);
+    NumberWithUnits e{value, small};
+    e++;
+    CHECK(e <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_F);
+    NumberWithUnits f{value, small};
+    f++;
+    CHECK(f <= NumberWithUnits{value+1, small});
+
+    // --
+    value = rand_double(0, INT_B);
+    NumberWithUnits g{value, small};
+    g++;
+    CHECK(g <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_B);
+    NumberWithUnits h{value, small};
+    h++;
+    CHECK(h <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_C);
+    NumberWithUnits i{value, small};
+    i++;
+    CHECK(i <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_D);
+    NumberWithUnits j{value, small};
+    j++;
+    CHECK(j <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_E);
+    NumberWithUnits k{value, small};
+    k++;
+    CHECK(k <= NumberWithUnits{value+1, small});
+    value = rand_double(0, INT_F);
+    NumberWithUnits m{value, small};
+    m++;
+    CHECK(m <= NumberWithUnits{value+1, small});
 }
 TEST_CASE("{USD, ILS}: arithmetic operators { +, += ") {
     NumberWithUnits::read_units(units_file);
