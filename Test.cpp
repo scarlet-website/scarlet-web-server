@@ -30,7 +30,7 @@ const int KG_TO_TON = 1000;
 const int G_TO_KG = 1000;
 const int MIN_TO_HOUR = 60;
 const int SEC_TO_MIN = 60;
-const double LIS_TO_USD = 3.33;
+const double ILS_TO_USD = 3.33;
 
 // epsilon constans
 const double  EPS1 = 0.001;
@@ -142,6 +142,48 @@ TEST_CASE("{km, m}: Comparison operators { <=, < }") {
 }
 TEST_CASE("{km, m}: Comparison operators { >=, > }") {
     NumberWithUnits::read_units(units_file);
+    string small = "m";
+    string big = "km";
+    int mul = M_TO_KM;
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_B = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_C = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_D = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_E = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_F = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    
+    // checking if small unit is bigger than big unit but the same value
+    double value = abs(rand_double(0, INT_A));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_A));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_B));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_C));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_D));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_E));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_F));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+
+    // cheking same unit bigger than same unit but plus epsilon
+    value = rand_double(0, INT_A);
+    CHECK(NumberWithUnits{value + EPS1, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_A);
+    CHECK(NumberWithUnits{value + EPS2, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_B);
+    CHECK(NumberWithUnits{value + EPS3, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_C);
+    CHECK(NumberWithUnits{value + EPS4, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_D);
+    CHECK(NumberWithUnits{value + EPS5, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_E);
+    CHECK(NumberWithUnits{value + EPS6, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_F);
+    CHECK(NumberWithUnits{value + EPS7, small} > NumberWithUnits{value, small});
 }
 TEST_CASE("{km, m}: arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
@@ -238,6 +280,48 @@ TEST_CASE("{m, cm}: Comparison operators { <=, < }") {
 }
 TEST_CASE("{m, cm}: Comparison operators { >=, > }") {
     NumberWithUnits::read_units(units_file);
+    string small = "cm";
+    string big = "m";
+    int mul = CM_TO_M;
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_B = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_C = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_D = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_E = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_F = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    
+    // checking if small unit is bigger than big unit but the same value
+    double value = abs(rand_double(0, INT_A));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_A));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_B));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_C));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_D));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_E));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_F));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+
+    // cheking same unit bigger than same unit but plus epsilon
+    value = rand_double(0, INT_A);
+    CHECK(NumberWithUnits{value + EPS1, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_A);
+    CHECK(NumberWithUnits{value + EPS2, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_B);
+    CHECK(NumberWithUnits{value + EPS3, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_C);
+    CHECK(NumberWithUnits{value + EPS4, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_D);
+    CHECK(NumberWithUnits{value + EPS5, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_E);
+    CHECK(NumberWithUnits{value + EPS6, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_F);
+    CHECK(NumberWithUnits{value + EPS7, small} > NumberWithUnits{value, small});
 }
 TEST_CASE("{m, cm}: arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
@@ -334,6 +418,48 @@ TEST_CASE("{ton, kg}: Comparison operators { <=, < }") {
 }
 TEST_CASE("{ton, kg}: Comparison operators { >=, > }") {
     NumberWithUnits::read_units(units_file);
+    string small = "kg";
+    string big = "ton";
+    int mul = KG_TO_TON;
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_B = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_C = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_D = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_E = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_F = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    
+    // checking if small unit is bigger than big unit but the same value
+    double value = abs(rand_double(0, INT_A));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_A));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_B));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_C));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_D));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_E));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_F));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+
+    // cheking same unit bigger than same unit but plus epsilon
+    value = rand_double(0, INT_A);
+    CHECK(NumberWithUnits{value + EPS1, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_A);
+    CHECK(NumberWithUnits{value + EPS2, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_B);
+    CHECK(NumberWithUnits{value + EPS3, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_C);
+    CHECK(NumberWithUnits{value + EPS4, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_D);
+    CHECK(NumberWithUnits{value + EPS5, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_E);
+    CHECK(NumberWithUnits{value + EPS6, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_F);
+    CHECK(NumberWithUnits{value + EPS7, small} > NumberWithUnits{value, small});
 }
 TEST_CASE("{ton, kg}: arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
@@ -430,6 +556,48 @@ TEST_CASE("{kg, g}: Comparison operators { <=, < }") {
 }
 TEST_CASE("{kg, g}: Comparison operators { >=, > }") {
     NumberWithUnits::read_units(units_file);
+    string small = "g";
+    string big = "kg";
+    int mul = G_TO_KG;
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_B = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_C = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_D = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_E = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_F = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    
+    // checking if small unit is bigger than big unit but the same value
+    double value = abs(rand_double(0, INT_A));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_A));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_B));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_C));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_D));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_E));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_F));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+
+    // cheking same unit bigger than same unit but plus epsilon
+    value = rand_double(0, INT_A);
+    CHECK(NumberWithUnits{value + EPS1, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_A);
+    CHECK(NumberWithUnits{value + EPS2, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_B);
+    CHECK(NumberWithUnits{value + EPS3, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_C);
+    CHECK(NumberWithUnits{value + EPS4, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_D);
+    CHECK(NumberWithUnits{value + EPS5, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_E);
+    CHECK(NumberWithUnits{value + EPS6, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_F);
+    CHECK(NumberWithUnits{value + EPS7, small} > NumberWithUnits{value, small});
 }
 TEST_CASE("{kg, g}: arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
@@ -526,6 +694,48 @@ TEST_CASE("{hour, min}: Comparison operators { <=, < }") {
 }
 TEST_CASE("{hour, min}: Comparison operators { >=, > }") {
     NumberWithUnits::read_units(units_file);
+    string small = "min";
+    string big = "hour";
+    int mul = MIN_TO_HOUR;
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_B = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_C = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_D = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_E = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_F = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    
+    // checking if small unit is bigger than big unit but the same value
+    double value = abs(rand_double(0, INT_A));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_A));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_B));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_C));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_D));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_E));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_F));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+
+    // cheking same unit bigger than same unit but plus epsilon
+    value = rand_double(0, INT_A);
+    CHECK(NumberWithUnits{value + EPS1, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_A);
+    CHECK(NumberWithUnits{value + EPS2, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_B);
+    CHECK(NumberWithUnits{value + EPS3, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_C);
+    CHECK(NumberWithUnits{value + EPS4, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_D);
+    CHECK(NumberWithUnits{value + EPS5, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_E);
+    CHECK(NumberWithUnits{value + EPS6, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_F);
+    CHECK(NumberWithUnits{value + EPS7, small} > NumberWithUnits{value, small});
 }
 TEST_CASE("{hour, min}: arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
@@ -622,6 +832,48 @@ TEST_CASE("{min, sec}: Comparison operators { <=, < }") {
 }
 TEST_CASE("{min, sec}: Comparison operators { >=, > }") {
     NumberWithUnits::read_units(units_file);
+    string small = "sec";
+    string big = "min";
+    int mul = SEC_TO_MIN;
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_B = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_C = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_D = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_E = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_F = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    
+    // checking if small unit is bigger than big unit but the same value
+    double value = abs(rand_double(0, INT_A));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_A));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_B));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_C));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_D));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_E));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_F));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+
+    // cheking same unit bigger than same unit but plus epsilon
+    value = rand_double(0, INT_A);
+    CHECK(NumberWithUnits{value + EPS1, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_A);
+    CHECK(NumberWithUnits{value + EPS2, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_B);
+    CHECK(NumberWithUnits{value + EPS3, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_C);
+    CHECK(NumberWithUnits{value + EPS4, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_D);
+    CHECK(NumberWithUnits{value + EPS5, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_E);
+    CHECK(NumberWithUnits{value + EPS6, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_F);
+    CHECK(NumberWithUnits{value + EPS7, small} > NumberWithUnits{value, small});
 }
 TEST_CASE("{min, sec}: arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
@@ -641,7 +893,7 @@ TEST_CASE("{USD, ILS}: Comparison operators { ==, != }") {
     NumberWithUnits::read_units(units_file);
     string small = "ILS";
     string big = "USD";
-    double mul = LIS_TO_USD;
+    double mul = ILS_TO_USD;
 
     const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
     const int INT_B = rand_int(MIN_AMOUNT, MAX_AMOUNT);
@@ -675,7 +927,7 @@ TEST_CASE("{USD, ILS}: Comparison operators { <=, < }") {
     NumberWithUnits::read_units(units_file);
     string small = "ILS";
     string big = "USD";
-    int mul = LIS_TO_USD;
+    int mul = ILS_TO_USD;
 
     const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
     const int INT_B = rand_int(MIN_AMOUNT, MAX_AMOUNT);
@@ -718,6 +970,48 @@ TEST_CASE("{USD, ILS}: Comparison operators { <=, < }") {
 }
 TEST_CASE("{USD, ILS}: Comparison operators { >=, > }") {
     NumberWithUnits::read_units(units_file);
+    string small = "ILS";
+    string big = "USD";
+    int mul = ILS_TO_USD;
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_B = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_C = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_D = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_E = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const int INT_F = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    
+    // checking if small unit is bigger than big unit but the same value
+    double value = abs(rand_double(0, INT_A));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_A));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_B));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_C));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_D));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_E));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+    value = abs(rand_double(0, INT_F));
+    CHECK(NumberWithUnits{value, big} > NumberWithUnits{value, small});
+
+    // cheking same unit bigger than same unit but plus epsilon
+    value = rand_double(0, INT_A);
+    CHECK(NumberWithUnits{value + EPS1, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_A);
+    CHECK(NumberWithUnits{value + EPS2, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_B);
+    CHECK(NumberWithUnits{value + EPS3, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_C);
+    CHECK(NumberWithUnits{value + EPS4, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_D);
+    CHECK(NumberWithUnits{value + EPS5, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_E);
+    CHECK(NumberWithUnits{value + EPS6, small} > NumberWithUnits{value, small});
+    value = rand_double(0, INT_F);
+    CHECK(NumberWithUnits{value + EPS7, small} > NumberWithUnits{value, small});
 }
 TEST_CASE("{USD, ILS}: arithmetic operators { ++, -- }") {
     NumberWithUnits::read_units(units_file);
