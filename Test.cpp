@@ -60,9 +60,7 @@ int rand_int(int bottom, int top) {
     return bottom + (rand() % (top - bottom + 1));
 }
 
-/**
- * km and m tests
- */
+/** km and m tests */
 TEST_CASE("{km, m}: Comparison operators { ==, != }") {
     NumberWithUnits::read_units(units_file);
     string small = "m";
@@ -301,6 +299,29 @@ TEST_CASE("{km, m}: arithmetic operators { -, -= }") {
 }
 TEST_CASE("{km, m}: arithmetic operators { *, *= }") {
     NumberWithUnits::read_units(units_file);
+    string small = "m";
+    string big = "km";
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const double mull = rand_double(0, INT_A);
+
+    // *
+    double value1 = rand_double(0, INT_A);
+    NumberWithUnits a{value1, small};
+    CHECK(a*mull == NumberWithUnits{value1*mull, small});
+    double value2 = rand_double(0, INT_A);
+    NumberWithUnits b{value2, big};
+    CHECK(b*mull == NumberWithUnits{value2*mull, big});
+
+    // *=
+    double value3 = rand_double(0, INT_A);
+    NumberWithUnits c{value3, small};
+    c*=mull;
+    CHECK(c == NumberWithUnits{value3*mull, small});
+    double value4 = rand_double(0, INT_A);
+    NumberWithUnits d{value4, big};
+    d*=mull;
+    CHECK(d == NumberWithUnits{value4*mull, big});
 }
 
 /** m and cm tests **/
@@ -542,6 +563,29 @@ TEST_CASE("{m, cm}: arithmetic operators { -, -= }") {
 }
 TEST_CASE("{m, cm}: arithmetic operators { *, *= }") {
     NumberWithUnits::read_units(units_file);
+    string small = "cm";
+    string big = "m";
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const double mull = rand_double(0, INT_A);
+
+    // *
+    double value1 = rand_double(0, INT_A);
+    NumberWithUnits a{value1, small};
+    CHECK(a*mull == NumberWithUnits{value1*mull, small});
+    double value2 = rand_double(0, INT_A);
+    NumberWithUnits b{value2, big};
+    CHECK(b*mull == NumberWithUnits{value2*mull, big});
+
+    // *=
+    double value3 = rand_double(0, INT_A);
+    NumberWithUnits c{value3, small};
+    c*=mull;
+    CHECK(c == NumberWithUnits{value3*mull, small});
+    double value4 = rand_double(0, INT_A);
+    NumberWithUnits d{value4, big};
+    d*=mull;
+    CHECK(d == NumberWithUnits{value4*mull, big});
 }
 
 /** ton and kg tests **/
@@ -782,6 +826,29 @@ TEST_CASE("{ton, kg}: arithmetic operators { -, -= }") {
 }
 TEST_CASE("{ton, kg}: arithmetic operators { *, *= }") {
     NumberWithUnits::read_units(units_file);
+    string small = "kg";
+    string big = "ton";
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const double mull = rand_double(0, INT_A);
+
+    // *
+    double value1 = rand_double(0, INT_A);
+    NumberWithUnits a{value1, small};
+    CHECK(a*mull == NumberWithUnits{value1*mull, small});
+    double value2 = rand_double(0, INT_A);
+    NumberWithUnits b{value2, big};
+    CHECK(b*mull == NumberWithUnits{value2*mull, big});
+
+    // *=
+    double value3 = rand_double(0, INT_A);
+    NumberWithUnits c{value3, small};
+    c*=mull;
+    CHECK(c == NumberWithUnits{value3*mull, small});
+    double value4 = rand_double(0, INT_A);
+    NumberWithUnits d{value4, big};
+    d*=mull;
+    CHECK(d == NumberWithUnits{value4*mull, big});
 }
 
 /** kg and g tests **/
@@ -1022,6 +1089,29 @@ TEST_CASE("{kg, g}: arithmetic operators { -, -= }") {
 }
 TEST_CASE("{kg, g}: arithmetic operators { *, *= }") {
     NumberWithUnits::read_units(units_file);
+    string small = "g";
+    string big = "kg";
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const double mull = rand_double(0, INT_A);
+
+    // *
+    double value1 = rand_double(0, INT_A);
+    NumberWithUnits a{value1, small};
+    CHECK(a*mull == NumberWithUnits{value1*mull, small});
+    double value2 = rand_double(0, INT_A);
+    NumberWithUnits b{value2, big};
+    CHECK(b*mull == NumberWithUnits{value2*mull, big});
+
+    // *=
+    double value3 = rand_double(0, INT_A);
+    NumberWithUnits c{value3, small};
+    c*=mull;
+    CHECK(c == NumberWithUnits{value3*mull, small});
+    double value4 = rand_double(0, INT_A);
+    NumberWithUnits d{value4, big};
+    d*=mull;
+    CHECK(d == NumberWithUnits{value4*mull, big});
 }
 
 /** hour and min tests **/
@@ -1262,6 +1352,29 @@ TEST_CASE("{hour, min}: arithmetic operators { -, -= }") {
 }
 TEST_CASE("{hour, min}: arithmetic operators { *, *= }") {
     NumberWithUnits::read_units(units_file);
+    string small = "min";
+    string big = "hour";
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const double mull = rand_double(0, INT_A);
+
+    // *
+    double value1 = rand_double(0, INT_A);
+    NumberWithUnits a{value1, small};
+    CHECK(a*mull == NumberWithUnits{value1*mull, small});
+    double value2 = rand_double(0, INT_A);
+    NumberWithUnits b{value2, big};
+    CHECK(b*mull == NumberWithUnits{value2*mull, big});
+
+    // *=
+    double value3 = rand_double(0, INT_A);
+    NumberWithUnits c{value3, small};
+    c*=mull;
+    CHECK(c == NumberWithUnits{value3*mull, small});
+    double value4 = rand_double(0, INT_A);
+    NumberWithUnits d{value4, big};
+    d*=mull;
+    CHECK(d == NumberWithUnits{value4*mull, big});
 }
 
 /** min and sec tests **/
@@ -1502,6 +1615,29 @@ TEST_CASE("{min, sec}: arithmetic operators { -, -= }") {
 }
 TEST_CASE("{min, sec}: arithmetic operators { *, *= }") {
     NumberWithUnits::read_units(units_file);
+    string small = "sec";
+    string big = "min";
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const double mull = rand_double(0, INT_A);
+
+    // *
+    double value1 = rand_double(0, INT_A);
+    NumberWithUnits a{value1, small};
+    CHECK(a*mull == NumberWithUnits{value1*mull, small});
+    double value2 = rand_double(0, INT_A);
+    NumberWithUnits b{value2, big};
+    CHECK(b*mull == NumberWithUnits{value2*mull, big});
+
+    // *=
+    double value3 = rand_double(0, INT_A);
+    NumberWithUnits c{value3, small};
+    c*=mull;
+    CHECK(c == NumberWithUnits{value3*mull, small});
+    double value4 = rand_double(0, INT_A);
+    NumberWithUnits d{value4, big};
+    d*=mull;
+    CHECK(d == NumberWithUnits{value4*mull, big});
 }
 
 /** USD and ILS tests **/
@@ -1742,4 +1878,27 @@ TEST_CASE("{USD, ILS}: arithmetic operators { -, -= }") {
 }
 TEST_CASE("{USD, ILS}: arithmetic operators { *, *= }") {
     NumberWithUnits::read_units(units_file);
+    string small = "ILS";
+    string big = "USD";
+
+    const int INT_A = rand_int(MIN_AMOUNT, MAX_AMOUNT);
+    const double mull = rand_double(0, INT_A);
+
+    // *
+    double value1 = rand_double(0, INT_A);
+    NumberWithUnits a{value1, small};
+    CHECK(a*mull == NumberWithUnits{value1*mull, small});
+    double value2 = rand_double(0, INT_A);
+    NumberWithUnits b{value2, big};
+    CHECK(b*mull == NumberWithUnits{value2*mull, big});
+
+    // *=
+    double value3 = rand_double(0, INT_A);
+    NumberWithUnits c{value3, small};
+    c*=mull;
+    CHECK(c == NumberWithUnits{value3*mull, small});
+    double value4 = rand_double(0, INT_A);
+    NumberWithUnits d{value4, big};
+    d*=mull;
+    CHECK(d == NumberWithUnits{value4*mull, big});
 }
