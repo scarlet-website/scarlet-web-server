@@ -20,8 +20,8 @@ using namespace std;
 using namespace ariel;
 
 // range of amounts
-const int MAX_AMOUNT = INT_MAX - 1;
-const int MIN_AMOUNT = INT_MIN + 1;
+const int MAX_AMOUNT = DBL_MAX - 1;
+const int MIN_AMOUNT = DBL_MIN + 1;
 
 // casting values constants variables
 const int M_TO_KM = 1000;
