@@ -80,8 +80,8 @@ namespace ariel {
             friend NumberWithUnits operator-=(NumberWithUnits& unit_number_1, const NumberWithUnits& unit_number_2);
 
             // * operators
-            friend NumberWithUnits operator*(NumberWithUnits& unit_number, double number);
-            friend NumberWithUnits operator*(double num, NumberWithUnits& unit_number);
+            friend NumberWithUnits operator*(const NumberWithUnits& unit_number, double number);
+            friend NumberWithUnits operator*(double num, const NumberWithUnits& unit_number);
 
             // *= operators
             friend NumberWithUnits operator*=(NumberWithUnits& unit_number, double number);

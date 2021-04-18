@@ -156,10 +156,10 @@ namespace ariel {
     }
 
     // * operators
-    NumberWithUnits operator*(NumberWithUnits& unit_number, double number) {
+    NumberWithUnits operator*(const NumberWithUnits& unit_number, double number) {
         return NumberWithUnits(unit_number.unit_value *number, unit_number.unit_type);
     }
-    NumberWithUnits operator*(double number, NumberWithUnits& unit_number) {
+    NumberWithUnits operator*(double number, const NumberWithUnits& unit_number) {
         return NumberWithUnits(unit_number.unit_value * number, unit_number.unit_type);
     }
 
