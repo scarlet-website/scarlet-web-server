@@ -106,23 +106,21 @@ namespace ariel {
     // >> operator
     istream& operator>>(istream& ist, NumberWithUnits& unit_number) {
 
-        char c = 0;
-        string t;
-        double v = 0;
-        ist >> v >> c >> t >> c;
-        if(t[t.length() - 1] == ']') { t.pop_back(); }
-        if(c == '-') { ist.putback('_'); }
-        try {
-            T.at(t);
-            unit_number.unit_value = v;
-            unit_number.unit_type = t;
-            return ist;
-        } catch(const exception &e) {
-            throw std::invalid_argument(t + " is not a valid unit!");
+        double value = 0;
+        string type;
+        char ch = ']';
+        ist >> value >> ch;
+        while(ch != ']') {
+            if(ch != '[') { type.insert(type.end(), ch); }
+            ist >> ch;
         }
-
-        string str;
-        ist >> unit_number.unit_value >> str >> unit_number.unit_type;
+        if(T.empty()) { throw std::invalid_argument("types cannot match " + type + " != " + type); }
+        T.at(type);
+        if(T[type][type] == 0 && type != type) {
+            throw std::invalid_argument("types cannot match " + type + " != " + type);
+        }
+        unit_number.unit_value = value;
+        unit_number.unit_type = type;
         return ist;
     }
 
