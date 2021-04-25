@@ -58,6 +58,7 @@ namespace ariel {
             /** overloading arithmetic operators */
 
             // + operators
+            friend NumberWithUnits operator+(const NumberWithUnits&unit_number);
             friend NumberWithUnits operator+(const NumberWithUnits& unit_number, double number);
             friend NumberWithUnits operator+(const NumberWithUnits& unit_number_1, const NumberWithUnits& unit_number_2);
 

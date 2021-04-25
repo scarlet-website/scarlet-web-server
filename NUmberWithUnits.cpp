@@ -109,6 +109,10 @@ namespace ariel {
     /** overloading arithmetic operators */
 
     // + operators
+    NumberWithUnits operator+(const NumberWithUnits& unit_number) {
+        return NumberWithUnits{abs(unit_number.unit_value), unit_number.unit_type};
+    }
+
     NumberWithUnits operator+(const NumberWithUnits& unit_number_1, const NumberWithUnits& unit_number_2) {
         double temp = casting_units(unit_number_2.unit_type, unit_number_1.unit_type, unit_number_2.unit_value);
         return NumberWithUnits(unit_number_1.unit_value + temp, unit_number_1.unit_type);
