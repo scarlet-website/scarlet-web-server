@@ -123,11 +123,13 @@ namespace ariel {
     }
 
     // ++ operators
-    NumberWithUnits operator++(NumberWithUnits& unit_number, int) {
-        return NumberWithUnits(unit_number.unit_value + ONE, unit_number.unit_type);
+    NumberWithUnits &NumberWithUnits::operator++() {
+        this->unit_value = this->unit_value + ONE;
+        return *this;
     }
-    NumberWithUnits operator++(NumberWithUnits& unit_number) {
-        return NumberWithUnits(unit_number.unit_value + ONE, unit_number.unit_type);
+
+    NumberWithUnits NumberWithUnits::operator++(int) {
+        return NumberWithUnits{this->unit_value++, this->unit_type};
     }
 
     // += operator
@@ -146,11 +148,13 @@ namespace ariel {
     }
 
     // -- operators
-    NumberWithUnits operator--(NumberWithUnits& unit_number, int) {
-        return NumberWithUnits(unit_number.unit_value - ONE, unit_number.unit_type);
+    NumberWithUnits &NumberWithUnits::operator--() {
+        this->unit_value = this->unit_value - ONE;
+        return *this;
     }
-    NumberWithUnits operator--(NumberWithUnits& unit_number) {
-        return NumberWithUnits(unit_number.unit_value - ONE, unit_number.unit_type);
+
+    NumberWithUnits NumberWithUnits::operator--(int) {
+        return NumberWithUnits{this->unit_value--, this->unit_type};
     }
 
     // -= operator
