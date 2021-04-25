@@ -29,8 +29,18 @@ namespace ariel {
 
     // implement constructor
     NumberWithUnits::NumberWithUnits(double value, const string& type) {
-        this->unit_value = value;
-        this->unit_type = type;
+        bool valid = false;
+        for(auto &v : T) {
+            if(valid) { break; }
+            for(auto &w : v.second) {
+                if(type == w.first) { valid = true; break; }
+            }
+        }
+        if(valid) {
+            this->unit_value = value;
+            this->unit_type = type;
+        } else { throw std::invalid_argument("Not a valid type of unit!"); }
+        
     }
 
     // implement read_units function
@@ -95,6 +105,22 @@ namespace ariel {
 
     // >> operator
     istream& operator>>(istream& ist, NumberWithUnits& unit_number) {
+
+        char c = 0;
+        string t;
+        double v = 0;
+        ist >> v >> c >> t >> c;
+        if(t[t.length() - 1] == ']') { t.pop_back(); }
+        if(c == '-') { ist.putback('_'); }
+        try {
+            T.at(t);
+            unit_number.unit_value = v;
+            unit_number.unit_type = t;
+            return ist;
+        } catch(const exception &e) {
+            throw std::invalid_argument(t + " is not a valid unit!");
+        }
+
         string str;
         ist >> unit_number.unit_value >> str >> unit_number.unit_type;
         return ist;
@@ -110,7 +136,7 @@ namespace ariel {
 
     // + operators
     NumberWithUnits operator+(const NumberWithUnits& unit_number) {
-        return NumberWithUnits{abs(unit_number.unit_value), unit_number.unit_type};
+        return NumberWithUnits{(unit_number.unit_value), unit_number.unit_type};
     }
 
     NumberWithUnits operator+(const NumberWithUnits& unit_number_1, const NumberWithUnits& unit_number_2) {
@@ -133,9 +159,18 @@ namespace ariel {
     }
 
     // += operator
-    NumberWithUnits operator+=(NumberWithUnits& unit_number_1, const NumberWithUnits& unit_number_2) {
-        unit_number_1.unit_value = unit_number_1.unit_value + casting_units(unit_number_2.unit_type, unit_number_1.unit_type, unit_number_2.unit_value);
-        return unit_number_1;
+    NumberWithUnits& NumberWithUnits::operator+=(const NumberWithUnits& unit_number) {
+        if(this->unit_type == unit_number.unit_type) {
+            this->unit_value = this->unit_value + unit_number.unit_value;
+            return *this;
+        }
+        try {
+            double v = T.at(unit_number.unit_type).at(this->unit_type);
+            this->unit_value = this->unit_value + (v * unit_number.unit_value);
+            return *this;
+        } catch(const exception &e) {
+            throw std::invalid_argument("Units do not match - [" + unit_number.unit_type + "] cannot be converted to [" + this->unit_type + "]");
+        }
     }
 
     // - operators
@@ -158,9 +193,18 @@ namespace ariel {
     }
 
     // -= operator
-    NumberWithUnits operator-=(NumberWithUnits& unit_number_1, const NumberWithUnits& unit_number_2) {
-        double temp = casting_units(unit_number_2.unit_type, unit_number_1.unit_type, unit_number_2.unit_value);
-        return NumberWithUnits(unit_number_1.unit_value = unit_number_1.unit_value - temp, unit_number_1.unit_type);
+    NumberWithUnits& NumberWithUnits::operator-=(const NumberWithUnits& unit_number) {
+        if(this->unit_type == unit_number.unit_type) {
+            this->unit_value = this->unit_value - unit_number.unit_value;
+            return *this;
+        }
+        try {
+            double v = T.at(unit_number.unit_type).at(this->unit_type);
+            this->unit_value = this->unit_value - (v * unit_number.unit_value);
+            return *this;
+        } catch(const exception &e) {
+            throw std::invalid_argument("Units do not match - [" + unit_number.unit_type + "] cannot be converted to [" + this->unit_type + "]");
+        }
     }
 
     // * operators

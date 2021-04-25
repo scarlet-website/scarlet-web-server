@@ -67,7 +67,7 @@ namespace ariel {
             NumberWithUnits operator++(int);
 
             // += operator
-            friend NumberWithUnits operator+=(NumberWithUnits& unit_number_1, const NumberWithUnits& unit_number_2);
+            NumberWithUnits &operator+=(const NumberWithUnits& unit_number);
 
             // - operators
             friend NumberWithUnits operator-(const NumberWithUnits& unit_number);
@@ -78,7 +78,7 @@ namespace ariel {
             NumberWithUnits operator--(int);
 
             // -= operator
-            friend NumberWithUnits operator-=(NumberWithUnits& unit_number_1, const NumberWithUnits& unit_number_2);
+            NumberWithUnits &operator-=(const NumberWithUnits& unit_number);
 
             // * operators
             friend NumberWithUnits operator*(const NumberWithUnits& unit_number, double number);
