@@ -1,5 +1,4 @@
-{
-  "books": [
+[
     {
       "CatalogNumber": 999991,
       "IsDigital": false,
@@ -78,4 +77,3 @@
       "inStock": true
     }
   ]
-}
