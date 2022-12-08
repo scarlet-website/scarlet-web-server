@@ -10,4 +10,4 @@ def index():
 
 @app.route('/all_books', methods=['POST'])
 def all_books():
-    return ""
+    return "all books"
