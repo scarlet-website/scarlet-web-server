@@ -163,26 +163,15 @@
       "isCase": false
     },
     {
-      "CatalogNumber": "2113",
+      "CatalogNumber": "1124",
       "IsDigital": false,
-      "ImageURL": "images/books/2113.jpg",
-      "Description": "שלושה ספרי הוצאת סקרלט לבחירה במחיר מיוחד",
-      "Info": "",
-      "UnitPrice": 150.0,
-      "NotRealUnitPrice": 298.0,
+      "ImageURL": "images/books/1124.jpeg",
+      "Description": "פייפר ריין - מסתבכת עם החוק",
+      "Info": "לכריסטיאן ביאנקו יש שני דברים שפועלים נגדו.<br>הראשון, הוא שוטר. <br>השני, הוא שוטר במחוז 18.<br><br>מה שאומר שאבא שלי הוא הבוס שלו. <br><br>לגדול תחת זכוכית המגדלת של מפקד המשטרה היה יותר מכפי שיכולתי להתמודד איתו.<br>עכשיו אני ברשות עצמי, חיה על פי החוקים שלי. <br><br>ובכן... בערך. <br><br>בעקבות ה'עבודה' החדשה שלי, נקלעתי למצב מסוכן<br>ותוכנית העזיבה לא בדיוק עובדת כפי שתכננתי.<br>לכן, כשהחברה הכי טובה שלי זוכה עבורי בדייט במכירת רווקים פומבית עם כריסטיאן, אני מסרבת. <br><br>מבחינתי, גבר במדים כחולים הוא רק דבר אחד – בעיה.<br>אבל אחרי שאח שלו מתחיל לצאת עם החברה הכי טובה שלי,<br>נעשה קשה להתעלם ממנו.<br> <br>הגוף המשגע שלו. חוש האופנה שרק בחורה כמוני יכולה להעריך. העובדה שמשפחתו קודמת לכול.<br>הכול יחד הופך אותו למפתה וגורם לי לתהות אם הוא יודע להשתמש באזיקים שלו בדרך הנכונה – בכך שיאזוק אותי למיטתו.<br><br>סדרת 'הצווארון הכחול' מביאה את סיפורם של האחים ביאנקו,<br>כל ספר מתאר זוג אחר וניתן לקרוא אותו בנפרד.<br>מסתבכת עם החוק הוא הספר השני בסדרה, קדם לו 'מפלרטטת עם האש'.",
+      "UnitPrice": 55.0,
+      "NotRealUnitPrice": 98.0,
       "inStock": true,
-      "isCase": true
-    },
-    {
-      "CatalogNumber": "2114",
-      "IsDigital": false,
-      "ImageURL": "images/books/2114.jpg",
-      "Description": "ארבעה ספרי הוצאת סקרלט לבחירה במחיר מיוחד",
-      "Info": "",
-      "UnitPrice": 190.0,
-      "NotRealUnitPrice": 392.0,
-      "inStock": true,
-      "isCase": true
+      "isCase": false
     },
     {
       "CatalogNumber": "2111",
@@ -214,6 +203,39 @@
       "Info": "<b>שני ספרי הוצאת סקרלט במחיר מיוחד:</b><br><br><ul><li>לשנוא אותך</li><li>לרמות אותך</li></ul>",
       "UnitPrice": 100.0,
       "NotRealUnitPrice": 196.0,
+      "inStock": true,
+      "isCase": true
+    },
+    {
+      "CatalogNumber": "2115",
+      "IsDigital": false,
+      "ImageURL": "images/books/2115.jpeg",
+      "Description": "צמד הצאוורון הכחול",
+      "Info": "צמד הצאוורון הכחול:<br>ספרי הוצאת סקרלט במחיר מיוחד:<br>😍מפלרטטת עם האש<br>😍מסתבכת עם החוק",
+      "UnitPrice": 100.0,
+      "NotRealUnitPrice": 196.0,
+      "inStock": true,
+      "isCase": true
+    },
+    {
+      "CatalogNumber": "2113",
+      "IsDigital": false,
+      "ImageURL": "images/books/2113.jpg",
+      "Description": "שלושה ספרי הוצאת סקרלט לבחירה במחיר מיוחד",
+      "Info": "",
+      "UnitPrice": 150.0,
+      "NotRealUnitPrice": 298.0,
+      "inStock": true,
+      "isCase": true
+    },
+    {
+      "CatalogNumber": "2114",
+      "IsDigital": false,
+      "ImageURL": "images/books/2114.jpg",
+      "Description": "ארבעה ספרי הוצאת סקרלט לבחירה במחיר מיוחד",
+      "Info": "",
+      "UnitPrice": 190.0,
+      "NotRealUnitPrice": 392.0,
       "inStock": true,
       "isCase": true
     }
