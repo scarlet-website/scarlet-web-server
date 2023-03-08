@@ -174,6 +174,17 @@
       "isCase": false
     },
     {
+      "CatalogNumber": "1125",
+      "IsDigital": false,
+      "ImageURL": "images/books/1125.jpeg",
+      "Description": "טרייסי לוריין - לאתגר אותך",
+      "Info": "שנאתי את זה שהיא כל הזמן מאתגרת אותי, אבל זה רק גרם לי לרצות אותה יותר.<br><br>אחיה היה החבר שלי... והבוס שלי. <br><br>היא הייתה מחוץ לתחום.<br><br>קאסי פוקס.<br><br>מהרגע שבו היא הביטה לעברי, ידעתי שתהיה שלי.<br><br>זה היה בלתי אפשרי להתרחק ממנה.<br><br>אני עובר על כל החוקים ושובר את הכלל היחידי בחיי.<br>לעולם אל תסמוך על אישה. לעולם.<br><br>ככל שהיא מתעקשת יותר, כך אני דוחף יותר.<br><br>אנחנו זהים. <br>אני יודע מה היא צריכה.<br>ואני אוכיח לה שיש גבר אחד שהיא יכולה לסמוך עליו. הגבר שלה.<br>אני.<br><br>לאתגר אותך הוא הספר השלישי בסדרה אשר מביא את סיפורם של הבחורים במכון הקעקועים 'רבל אינק'.<br><br>כל ספר מתאר זוג אחר וניתן לקרוא אותו בנפרד.",
+      "UnitPrice": 55.0,
+      "NotRealUnitPrice": 98.0,
+      "inStock": true,
+      "isCase": false
+    },
+    {
       "CatalogNumber": "2111",
       "IsDigital": false,
       "ImageURL": "images/books/2111.jpeg",
@@ -214,6 +225,17 @@
       "Info": "צמד הצאוורון הכחול:<br>ספרי הוצאת סקרלט במחיר מיוחד:<br>😍מפלרטטת עם האש<br>😍מסתבכת עם החוק",
       "UnitPrice": 100.0,
       "NotRealUnitPrice": 196.0,
+      "inStock": true,
+      "isCase": true
+    },
+    {
+      "CatalogNumber": "2116",
+      "IsDigital": false,
+      "ImageURL": "images/books/2116.jpg",
+      "Description": "שלושה ספרי הוצאת סקרלט במחיר מיוחד",
+      "Info": "שלושה ספרי הוצאת סקרלט במחיר מיוחד:<br><br>😍לשנוא אותך<br>😍לרמות אותך<br>😍לאתגר אותך",
+      "UnitPrice": 150.0,
+      "NotRealUnitPrice": 294.0,
       "inStock": true,
       "isCase": true
     },
