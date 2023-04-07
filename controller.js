@@ -19,7 +19,7 @@ const purchase = (req, res) => {
       {
         GroupPrivateToken: process.env.GROUP_PRIVATE_TOKEN,
         RedirectURL: redirectURL,
-        ExemptVAT: true,
+        ExemptVAT: false,
         MaxPayments: 12,
         Items: req.body.Items,
         ...req.body.details,
