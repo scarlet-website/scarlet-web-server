@@ -326,28 +326,6 @@
       "NotRealUnitPrice": 392.0,
       "inStock": true,
       "isCase": true
-    },
-    {
-      "CatalogNumber": "21130",
-      "IsDigital": false,
-      "ImageURL": "images/books/21130.jpeg",
-      "Description": "שלושה ספרי הוצאת סקרלט לבחירה במחיר מיוחד",
-      "Info": "",
-      "UnitPrice": 150.0,
-      "NotRealUnitPrice": 298.0,
-      "inStock": true,
-      "isCase": true
-    },
-    {
-      "CatalogNumber": "21140",
-      "IsDigital": false,
-      "ImageURL": "images/books/21140.jpeg",
-      "Description": "ארבעה ספרי הוצאת סקרלט לבחירה במחיר מיוחד",
-      "Info": "",
-      "UnitPrice": 190.0,
-      "NotRealUnitPrice": 392.0,
-      "inStock": true,
-      "isCase": true
     }
   ],
   "orders": [
