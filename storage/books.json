@@ -348,7 +348,41 @@
       "NotRealUnitPrice": 294.0,
       "inStock": true,
       "isCase": true
-    }
+    },
+    {
+      "CatalogNumber": "2119",
+      "IsDigital": false,
+      "ImageURL": "images/books/2119.jpeg",
+      "Description": "מארז מודפסים מיוחד של הסופרת איי. אי. מרפי<br><br>150 ₪<br>במקום: 294 ₪<br>ספרי הוצאת סקרלט במחיר מיוחד:<br><br>😍וישס<br>😍חנון חורג<br>😍עירום או מת",
+      "Info": "סדרת הצאוורון הכחול<br><br>150 ₪<br>במקום: 294 ₪<br>צמד הצאוורון הכחול:<br>ספרי הוצאת סקרלט במחיר מיוחד:<br>😍מפלרטטת עם האש<br>😍מסתבכת עם החוק<br>😍משחקת עם הלב",
+      "UnitPrice": 150.0,
+      "NotRealUnitPrice": 294.0,
+      "inStock": true,
+      "isCase": true
+    },
+
+    {
+      "CatalogNumber": "21130",
+      "IsDigital": false,
+      "ImageURL": "images/books/21130.jpeg",
+      "Description": "שלושה ספרי הוצאת סקרלט לבחירה במחיר מיוחד",
+      "Info": "",
+      "UnitPrice": 150.0,
+      "NotRealUnitPrice": 298.0,
+      "inStock": true,
+      "isCase": true
+  },
+  {
+      "CatalogNumber": "21140",
+      "IsDigital": false,
+      "ImageURL": "images/books/21140.jpeg",
+      "Description": "ארבעה ספרי הוצאת סקרלט לבחירה במחיר מיוחד",
+      "Info": "",
+      "UnitPrice": 190.0,
+      "NotRealUnitPrice": 392.0,
+      "inStock": true,
+      "isCase": true
+  }
   ],
   "orders": [
     {
