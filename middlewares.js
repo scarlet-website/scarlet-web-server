@@ -1,6 +1,6 @@
 const storage = require("mini-db");
 
-const fetch = require("node-fetch"); // Import the fetch library if it's not available already.
+// const fetch = require("node-fetch"); // Import the fetch library if it's not available already.
 
 async function getBooksDataFromURL(url) {
   try {
