@@ -2,7 +2,36 @@ const axios = require("axios");
 const storage = require("mini-db");
 require("dotenv").config();
 
-const db = storage("./storage/books.json");
+const fetch = require("node-fetch"); // Import the fetch library if it's not available already.
+
+async function getBooksDataFromURL(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Network response was not ok.");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return null;
+  }
+}
+
+async function main() {
+  const booksURL = "https://scarlet-website.github.io/api-data/books.json";
+
+  const db = await getBooksDataFromURL(booksURL);
+  if (db) {
+    // Now you have the data in the db constant, you can use it as you need.
+    console.log(db);
+  } else {
+    console.log("Failed to fetch books data.");
+  }
+}
+
+main();
+
+// const db = storage("./storage/books.json");
 const rivhit_url = "https://icredit.rivhit.co.il/API/PaymentPageRequest.svc/";
 
 let redirectURL = "https://www.scarlet-publishing.com/pages/order_confirm.php";

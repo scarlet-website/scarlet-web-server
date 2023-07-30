@@ -1,6 +1,33 @@
 const storage = require("mini-db");
 
-const db = storage("./storage/books.json");
+const fetch = require("node-fetch"); // Import the fetch library if it's not available already.
+
+async function getBooksDataFromURL(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Network response was not ok.");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return null;
+  }
+}
+
+async function main() {
+  const booksURL = "https://scarlet-website.github.io/api-data/books.json";
+
+  const db = await getBooksDataFromURL(booksURL);
+  if (db) {
+    // Now you have the data in the db constant, you can use it as you need.
+    console.log(db);
+  } else {
+    console.log("Failed to fetch books data.");
+  }
+}
+
+main();
 
 const purchase_middleware = (req, res, next) => {
     console.log("purchase_middleware");
