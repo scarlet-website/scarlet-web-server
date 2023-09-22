@@ -416,6 +416,17 @@
       "isCase": true
     },
     {
+      "CatalogNumber": "2120",
+      "IsDigital": false,
+      "ImageURL": "https://scarlet-website.github.io/api-data/books_cover/2120.jpg",
+      "Description": "מארז חיילי האנרכיה",
+      "Info": "מארז סדרת 'חיילי האנרכיה' במחיר מיוחד<br><br>150 ₪<br>במקום: 294 ₪<br>שלושה ספרי הוצאת סקרלט במחיר מיוחד:<br><br>😍הפסיכופת<br>😍הקוצר<br>😍הג'וק",
+      "UnitPrice": 150.0,
+      "NotRealUnitPrice": 294.0,
+      "inStock": true,
+      "isCase": true
+    },
+    {
       "CatalogNumber": "21130",
       "IsDigital": false,
       "ImageURL": "https://scarlet-website.github.io/api-data/books_cover/21130.jpg",
