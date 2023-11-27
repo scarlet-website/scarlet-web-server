@@ -502,6 +502,17 @@
       "NotRealUnitPrice": 392.0,
       "inStock": false,
       "isCase": true
+    },
+    {
+      "CatalogNumber": "2140",
+      "IsDigital": false,
+      "ImageURL": "https://scarlet-website.github.io/api-data/books_cover/2140.jpeg",
+      "Description": "מארז ביי רידג'",
+      "Info": "מארז סדרת 'ביי רידג'' במחיר מיוחד:<br><br>😍התוכניות הטובות<br>😍הכוונות הטובות<br>😍הטוב שבי",
+      "UnitPrice": 135.0,
+      "NotRealUnitPrice": 294.0,
+      "inStock": true,
+      "isCase": true
     }
   ],
   "orders": [
