@@ -2,13 +2,9 @@ const axios = require("axios");
 require("dotenv").config();
 
 const rivhit_url = "https://icredit.rivhit.co.il/API/PaymentPageRequest.svc";
-let redirectURL = "https://www.scarlet-publishing.com/pages/order_confirm.php";
+const redirectURL = "https://www.scarlet-publishing.com/pages/order_confirm.php";
 
 const purchase = (req, res) => {
-  console.log("Items: (json) ", JSON.stringify(req.body.Items));
-  console.log("\n\n");
-  console.log("details: (json) ", JSON.stringify(req.body.details));
-  console.log("\n\n");
   axios
     .post(
       `${rivhit_url}/GetUrl`,
