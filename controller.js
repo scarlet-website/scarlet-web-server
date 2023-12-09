@@ -5,8 +5,6 @@ const rivhit_url = "https://icredit.rivhit.co.il/API/PaymentPageRequest.svc";
 let redirectURL = "https://www.scarlet-publishing.com/pages/order_confirm.php";
 
 const purchase = (req, res) => {
-  // console.log(`Items: ${req.body.Items}`);
-  // console.log(`details: ${req.body.details}`);
   console.log("Items: (json) ", JSON.stringify(req.body.Items));
   console.log("\n\n");
   console.log("details: (json) ", JSON.stringify(req.body.details));
@@ -15,8 +13,7 @@ const purchase = (req, res) => {
     .post(
       `${rivhit_url}/GetUrl`,
       {
-        // GroupPrivateToken: process.env.GROUP_PRIVATE_TOKEN,
-        GroupPrivateToken: "39f6f952-043d-4452-abe7-e161c8d4245e",
+        GroupPrivateToken: process.env.GROUP_PRIVATE_TOKEN,
         RedirectURL: redirectURL,
         ExemptVAT: false,
         MaxPayments: 12,
