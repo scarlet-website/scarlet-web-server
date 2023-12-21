@@ -17,10 +17,11 @@ app.use(morgan("dev"));
 
 /* Routes */
 app
-  .post("/api/purchase", middleware.purchase_middleware, controller.purchase);
+  .post("/cart/purchase", middleware.purchase_middleware, controller.purchase);
 
+const HOST = "https://scarlet-publishing.com";
 
 /* Start server */
-app.listen(PORT, () =>
-  console.log(`App listening at http://localhost:${PORT}/api`)
+app.listen(PORT, HOST, () =>
+  console.log(`App listening at ${HOST}:${PORT}/cart`)
 );
