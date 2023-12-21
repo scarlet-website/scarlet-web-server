@@ -5,17 +5,19 @@ const rivhit_url = "https://icredit.rivhit.co.il/API/PaymentPageRequest.svc";
 const redirectURL = "https://www.scarlet-publishing.com/pages/order_confirm.php";
 
 const purchase = (req, res) => {
+  let json_data = {
+    GroupPrivateToken: process.env.GROUP_PRIVATE_TOKEN,
+    RedirectURL: redirectURL,
+    ExemptVAT: false,
+    MaxPayments: 12,
+    Items: req.body.Items,
+    ...req.body.details,
+  }
+  console.log(`JSON DATA: ${JSON.stringify(json_data)}`);
   axios
     .post(
       `${rivhit_url}/GetUrl`,
-      {
-        GroupPrivateToken: process.env.GROUP_PRIVATE_TOKEN,
-        RedirectURL: redirectURL,
-        ExemptVAT: false,
-        MaxPayments: 12,
-        Items: req.body.Items,
-        ...req.body.details,
-      }
+      json_data
     )
     .then((response) => {
       const responseUrl = response.data.URL;

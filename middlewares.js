@@ -1,5 +1,6 @@
 const axios = require('axios');
-const SERVER_ADDRESS = "https://manager-web-server.onrender.com";
+// const SERVER_ADDRESS = "https://manager-web-server.onrender.com";
+const SERVER_ADDRESS = "https://scarlet-publishing.com/api";
 
 const purchase_middleware = async (req, res, next) => {
     console.log("purchase_middleware");
